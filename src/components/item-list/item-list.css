@@ -1,0 +1,23 @@
+.item-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.item-list .ant-col {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.item-list .item {
+  width: 400px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Занимает всю высоту экрана, можете настроить под свои нужды */
+}
