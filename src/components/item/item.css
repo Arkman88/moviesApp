@@ -4,18 +4,24 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   overflow: hidden;
+  width: 400px;
+  height: 250px;
   margin: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .item img {
   width: 35%;
+  height: 100%;
   object-fit: cover;
 }
 
 .item-details {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 65%;
   padding: 10px;
+  box-sizing: border-box;
   flex: 1;
 }
 
@@ -23,6 +29,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .item-rating {
@@ -43,9 +52,9 @@
 }
 
 .item-description {
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 12px;
-  height: 50px;
+  height: 80px;
   color: #666;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -54,4 +63,31 @@
 
 .item-rate {
   font-size: 12px;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.item-date {
+  font-size: 12px;
+  color: #827e7e;
+  margin-bottom: 5px;
+}
+
+.item-genres {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.genre-badge {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-size: 12px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  white-space: nowrap;
 }

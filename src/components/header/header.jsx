@@ -1,10 +1,15 @@
+import { Button } from 'antd'
 import './header.css'
 
-const Header = () => {
+const Header = ({ isHomePage, isRatedPage, onHomeClick, onRatedClick }) => {
   return (
     <header className="header">
-      <a href="/">Search</a>
-      <a href="/rated">Rated</a>
+      <Button type="link" className={`header-button ${isHomePage ? 'active' : ''}`} onClick={onHomeClick}>
+        Search
+      </Button>
+      <Button type="link" className={`header-button ${isRatedPage ? 'active' : ''}`} onClick={onRatedClick}>
+        Rated
+      </Button>
     </header>
   )
 }

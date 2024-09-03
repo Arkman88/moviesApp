@@ -1,6 +1,7 @@
 import React from 'react'
 import { Input } from 'antd'
 import { debounce } from 'lodash'
+import Spinner from '../spinner/spinner'
 import './search-bar.css'
 
 export default class SearchBar extends React.Component {
@@ -22,6 +23,7 @@ export default class SearchBar extends React.Component {
     return (
       <div className="search-bar">
         <Input placeholder="Type to search..." value={this.state.searchQuery} onChange={this.onChange} />
+        {this.props.loading && <Spinner />}
       </div>
     )
   }

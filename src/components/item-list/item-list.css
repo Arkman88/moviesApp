@@ -10,14 +10,3 @@
   justify-content: center;
   margin-bottom: 10px;
 }
-
-.item-list .item {
-  width: 400px;
-}
-
-.spinner-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Занимает всю высоту экрана, можете настроить под свои нужды */
-}
