@@ -1,6 +1,6 @@
-import Item from '../item/item'
-import { Row, Col } from 'antd'
-import './item-list.css'
+import Item from '../item/item';
+import { Row, Col } from 'antd';
+import './item-list.css';
 
 const ItemList = ({ items }) => {
   return (
@@ -13,7 +13,7 @@ const ItemList = ({ items }) => {
         ))}
       </Row>
     </div>
-  )
-}
+  );
+};
 
-export default ItemList
+export default ItemList;

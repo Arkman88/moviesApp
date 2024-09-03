@@ -1,19 +1,19 @@
-import { Rate } from 'antd'
-import { format, parse, isValid } from 'date-fns'
-import './item.css'
+import { Rate } from 'antd';
+import { format, parse, isValid } from 'date-fns';
+import './item.css';
 
 const parseDate = (dateString) => {
-  const formatString = 'yyyy-MM-dd'
-  const parsedDate = parse(dateString, formatString, new Date())
+  const formatString = 'yyyy-MM-dd';
+  const parsedDate = parse(dateString, formatString, new Date());
 
-  return isValid(parsedDate) ? parsedDate : new Date()
-}
+  return isValid(parsedDate) ? parsedDate : new Date();
+};
 
 const Item = ({ item }) => {
-  const ratingRounded = Math.round(item.rating * 10) / 10
+  const ratingRounded = Math.round(item.rating * 10) / 10;
 
-  const releaseDate = parseDate(item.release_date)
-  const formattedDate = format(releaseDate, 'MMMM d, yyyy')
+  const releaseDate = parseDate(item.release_date);
+  const formattedDate = format(releaseDate, 'MMMM d, yyyy');
 
   return (
     <div className="item">
@@ -37,7 +37,7 @@ const Item = ({ item }) => {
         <Rate className="item-rate" disabled value={item.rating} count={10} allowHalf />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Item
+export default Item;

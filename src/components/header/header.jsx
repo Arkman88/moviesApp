@@ -1,17 +1,12 @@
-import { Button } from 'antd'
-import './header.css'
+import './header.css';
 
-const Header = ({ isHomePage, isRatedPage, onHomeClick, onRatedClick }) => {
+const Header = () => {
   return (
     <header className="header">
-      <Button type="link" className={`header-button ${isHomePage ? 'active' : ''}`} onClick={onHomeClick}>
-        Search
-      </Button>
-      <Button type="link" className={`header-button ${isRatedPage ? 'active' : ''}`} onClick={onRatedClick}>
-        Rated
-      </Button>
+      <a href="/">Search</a>
+      <a href="/rated">Rated</a>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
