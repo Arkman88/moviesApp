@@ -4,6 +4,7 @@ import Footer from '../footer/footer'
 import SearchBar from '../search-bar/search-bar'
 import Header from '../header/header'
 import ItemList from '../item-list/item-list'
+import { Alert } from 'antd'
 
 import './app.css'
 
@@ -46,13 +47,23 @@ export default class App extends React.Component {
     })
   }
 
+  errorAlert = () => {
+    const { errorMsg } = this.state
+
+    if (errorMsg) {
+      return <Alert message="Error" description={errorMsg} type="error" showIcon style={{ marginBottom: '20px' }} />
+    }
+    return null
+  }
+
   render() {
-    const { movies, totalPages, errorMsg } = this.state
+    const { movies, totalPages } = this.state
     return (
       <div className="app">
         <Header />
         <SearchBar onSearch={this.onSearch} />
-        {errorMsg ? <div className="error-message">{errorMsg}</div> : <ItemList items={movies} />}
+        {this.errorAlert()}
+        <ItemList items={movies} />
         <Footer onChange={this.onPageChange} total={totalPages} />
       </div>
     )

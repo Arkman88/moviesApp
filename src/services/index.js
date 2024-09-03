@@ -1,7 +1,7 @@
 import { API_KEY } from './config'
 
 export default class MoviesApp {
-  _apiBase = 'https://api.themoviedb.org/3/search/movie'
+  _apiBase = 'https://api.themoviedb.org/3'
 
   async getResource(url) {
     const options = {
@@ -20,13 +20,13 @@ export default class MoviesApp {
   }
 
   async getMovies(query = 'return', page = 1) {
-    const url = `${this._apiBase}?query=${encodeURIComponent(query)}&page=${page}&include_adult=false&language=en-US`
+    const url = `${this._apiBase}/search/movie?query=${encodeURIComponent(query)}&page=${page}&include_adult=false&language=en-US`
 
     try {
       const data = await this.getResource(url)
 
       if (data.results.length === 0) {
-        return { movies: [], totalPages: 0, errorMsg: 'No movies found. Please try a different query.' }
+        return { movies: [], totalPages: 0, errorMsg: 'No movies found! Please try a different query.' }
       }
 
       const movies = data.results.map((movie) => ({
@@ -40,6 +40,27 @@ export default class MoviesApp {
       return { movies, totalPages: data.total_pages, errorMsg: '' }
     } catch (error) {
       return { movies: [], totalPages: 0, errorMsg: 'Ooops! Something went wrong!' }
+    }
+  }
+
+  async getGenres() {
+    const url = `${this._apiBase}/genre/movie/list?language=en-US`
+
+    try {
+      const data = await this.getResource(url)
+
+      if (data.genres.length === 0) {
+        return { genres: [], errorMsg: 'No genres found!' }
+      }
+
+      const genres = data.genres.map((genre) => ({
+        id: genre.id,
+        name: genre.name,
+      }))
+
+      return { genres, errorMsg: '' }
+    } catch (error) {
+      return { genres: [], errorMsg: 'Ooops! Something went wrong!' }
     }
   }
 }
