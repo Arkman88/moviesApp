@@ -1,28 +1,27 @@
-import React from 'react';
+import { useState, useCallback } from 'react';
 import { Input } from 'antd';
 import { debounce } from 'lodash';
 import './search-bar.css';
 
-export default class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { searchQuery: '' };
+const SearchBar = ({ onSearch }) => {
+  const [searchQuery, setSearchQuery] = useState('');
 
-    this.debouncedSearch = debounce(this.props.onSearch, 400);
-  }
+  const debouncedSearch = useCallback(
+    debounce((query) => onSearch(query), 1000),
+    [onSearch]
+  );
 
-  onChange = (e) => {
-    const searchQuery = e.target.value;
-    this.setState({ searchQuery });
-
-    this.debouncedSearch(searchQuery);
+  const handleChange = (event) => {
+    const newSearchQuery = event.target.value;
+    setSearchQuery(newSearchQuery);
+    debouncedSearch(newSearchQuery);
   };
 
-  render() {
-    return (
-      <div className="search-bar">
-        <Input placeholder="Type to search..." value={this.state.searchQuery} onChange={this.onChange} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="search-bar">
+      <Input placeholder="Type to search..." value={searchQuery} onChange={handleChange} />
+    </div>
+  );
+};
+
+export default SearchBar;

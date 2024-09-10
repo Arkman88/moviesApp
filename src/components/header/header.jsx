@@ -1,10 +1,15 @@
+import { Tabs } from 'antd';
 import './header.css';
 
-const Header = () => {
+const Header = ({ activeTab, onTabChange }) => {
+  const tabItems = [
+    { key: 'search', label: 'Search' },
+    { key: 'rated', label: 'Rated' },
+  ];
+
   return (
     <header className="header">
-      <a href="/">Search</a>
-      <a href="/rated">Rated</a>
+      <Tabs activeKey={activeTab} onChange={onTabChange} centered items={tabItems} />
     </header>
   );
 };

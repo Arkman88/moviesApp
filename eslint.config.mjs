@@ -7,11 +7,11 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import airbnb from 'eslint-config-airbnb';
 
-const { extends: airbnbRules, ...airbnbConfig } = airbnb;
+const { rules: airbnbRules } = airbnb;
 
 export default [
-  { ignores: ['dist', 'node_modules', 'eslint.config,js'] },
   {
+    ignores: ['dist', 'node_modules', 'eslint.config.js'],
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
@@ -22,17 +22,18 @@ export default [
         sourceType: 'module',
       },
     },
-    settings: { react: { version: '18.3' } },
+    settings: {
+      react: { version: 'detect' },
+    },
     plugins: {
       'react-hooks': reactHooks,
       'react': react,
       'prettier': prettierPlugin,
       'import': importPlugin,
-      'eslint/prettier': eslintConfigPrettier,
     },
     rules: {
+      ...airbnbRules,
       ...prettierPlugin.configs.recommended.rules,
-      ...airbnb.rules,
       ...eslintConfigPrettier.rules,
       ...js.configs.recommended.rules,
       ...react.configs.recommended.rules,
@@ -40,23 +41,22 @@ export default [
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
       'react/react-in-jsx-scope': 'off',
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
       'linebreak-style': [0, 'unix'],
-      'quotes': ["error", "single"],
+      'quotes': ['error', 'single'],
       'semi': 0,
       'endOfLine': 'off',
       'react/prop-types': 0,
-      "prettier/prettier": [
-    "error",
-    {
-      "singleQuote": true,
-      "parser": "flow",
-      "endOfLine": "auto"
-    }
-  ],
-      'indent': ['error', 2],
-      "no-mixed-spaces-and-tabs": 0,
+      'prettier/prettier': [
+        'error',
+        {
+          'singleQuote': true,
+          'endOfLine': 'auto',
+        },
+      ],
+      'no-mixed-spaces-and-tabs': 0,
       'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     },
-    
   },
 ];

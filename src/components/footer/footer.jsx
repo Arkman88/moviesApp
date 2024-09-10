@@ -1,10 +1,10 @@
-import './footer.css';
 import { Pagination } from 'antd';
+import './footer.css';
 
-const Footer = ({ onChange, total }) => {
+const Footer = ({ current, total, onChange }) => {
   return (
     <footer className="footer">
-      <Pagination onChange={onChange} total={total} pageSize={10} showSizeChanger={false} />
+      <Pagination current={current} total={total * 10} onChange={onChange} showSizeChanger={false} />
     </footer>
   );
 };

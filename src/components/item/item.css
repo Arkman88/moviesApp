@@ -45,7 +45,7 @@
   align-items: center;
   width: 30px;
   height: 30px;
-  border: 2px solid #e9d100;
+  border: 3px solid #e9d100;
   border-radius: 50%;
   font-weight: 500;
   font-size: 12px;
@@ -54,7 +54,7 @@
 .item-description {
   margin-top: 5px;
   font-size: 12px;
-  height: 80px;
+  height: px;
   color: #666;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -62,9 +62,10 @@
 }
 
 .item-rate {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: auto;
   margin-bottom: 5px;
+  margin-left: 5px;
 }
 
 .item-date {
