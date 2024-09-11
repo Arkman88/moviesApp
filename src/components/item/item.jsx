@@ -18,6 +18,13 @@ const getRatingColor = (rating) => {
   return '#66E900';
 };
 
+const cutText = (text, maxLength) => {
+  if (text.length <= maxLength) return text;
+
+  const trimmedText = text.substr(0, text.lastIndexOf(' ', maxLength));
+  return `${trimmedText}...`;
+};
+
 const Item = ({ item, moviesApp }) => {
   const genres = useContext(GenresContext);
 
@@ -51,6 +58,8 @@ const Item = ({ item, moviesApp }) => {
     }
   };
 
+  const maxLength = 120;
+
   return (
     <div className="item">
       <img src={item.image} alt={item.title} />
@@ -71,7 +80,7 @@ const Item = ({ item, moviesApp }) => {
             </span>
           ))}
         </div>
-        <p className="item-description">{item.description}</p>
+        <p className="item-description">{cutText(item.description, maxLength)}</p>
         <Rate className="item-rate" count={10} allowHalf value={userRating} onChange={handleRatingChange} />
       </div>
     </div>

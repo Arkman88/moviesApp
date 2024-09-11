@@ -15,6 +15,7 @@ const ItemList = ({ items, moviesApp }) => {
             sm={colSpan.sm}
             md={colSpan.md}
             key={item.id}
+            className="ant-col"
           >
             <Item item={item} moviesApp={moviesApp} />
           </Col>

@@ -5,7 +5,7 @@
   border-radius: 5px;
   overflow: hidden;
   width: 400px;
-  height: 250px;
+  height: 260px;
   margin: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -29,9 +29,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  margin-bottom: 5px;
 }
 
 .item-rating {
@@ -78,7 +77,7 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .genre-badge {
@@ -86,7 +85,7 @@
   color: #333;
   border: 1px solid #ccc;
   border-radius: 3px;
-  padding: 4px 6px;
+  padding: 2px 2px;
   font-size: 12px;
   margin-right: 5px;
   margin-bottom: 5px;

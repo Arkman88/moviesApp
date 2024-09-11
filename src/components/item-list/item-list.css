@@ -9,4 +9,5 @@
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+  min-width: 400px;
 }
